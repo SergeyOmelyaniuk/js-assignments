@@ -17,20 +17,20 @@ const {
 it.optional = require('../extensions/it-optional');
 
 describe('02-numbers-tasks', () => {
-  it.optional('getRectangleArea should return a square of rectangle', () => {
+  it('getRectangleArea should return a square of rectangle', () => {
     assert.equal(getRectangleArea(5, 10), 50);
     assert.equal(getRectangleArea(5, 5), 25);
     assert.linesOfCode(getRectangleArea, 1);
   });
 
-  it.optional('getCicleCircumference should return a circumference of cicle', () => {
+  it('getCicleCircumference should return a circumference of cicle', () => {
     assert.equal(getCicleCircumference(5), 31.41592653589793);
     assert.equal(getCicleCircumference(3.14), 19.729201864543903);
     assert.equal(getCicleCircumference(0), 0);
     assert.linesOfCode(getCicleCircumference, 1);
   });
 
-  it.optional('getAverage should return an average of two numbers', () => {
+  it('getAverage should return an average of two numbers', () => {
     assert.equal(getAverage(5, 5), 5);
     assert.equal(getAverage(10, 0), 5);
     assert.equal(getAverage(-3, 3), 0);
@@ -39,7 +39,7 @@ describe('02-numbers-tasks', () => {
     assert.linesOfCode(getAverage, 1);
   });
 
-  it.optional('getDistanceBetweenPoints should return a distance between points', () => {
+  it('getDistanceBetweenPoints should return a distance between points', () => {
     assert.equal(getDistanceBetweenPoints(0, 0, 0, 1), 1);
     assert.equal(getDistanceBetweenPoints(0, 0, 1, 0), 1);
     assert.equal(getDistanceBetweenPoints(-5, 0, 10, -10), 18.027756377319946);
@@ -47,14 +47,14 @@ describe('02-numbers-tasks', () => {
     assert.linesOfCode(getDistanceBetweenPoints, 1);
   });
 
-  it.optional('getLinearEquationRoot should return a root of linear equation', () => {
+  it('getLinearEquationRoot should return a root of linear equation', () => {
     assert.equal(getLinearEquationRoot(5, -10), 2);
     assert.equal(getLinearEquationRoot(1, 8), -8);
     assert.equal(getLinearEquationRoot(5, 0), 0);
     assert.linesOfCode(getLinearEquationRoot, 1);
   });
 
-  it.optional('getAngleBetweenVectors should return a angle (in radians) between two linear vectors', () => {
+  it('getAngleBetweenVectors should return a angle (in radians) between two linear vectors', () => {
     assert.equal(getAngleBetweenVectors(1, 0, 0, 1), Math.PI / 2);
     assert.equal(getAngleBetweenVectors(0, 1, 0, -1), Math.PI);
     assert.equal(getAngleBetweenVectors(0, -1, 1, 0), Math.PI / 2);
@@ -62,7 +62,7 @@ describe('02-numbers-tasks', () => {
     assert.linesOfCode(getAngleBetweenVectors, 1);
   });
 
-  it.optional('getLastDigit should return a last digit of the number', () => {
+  it('getLastDigit should return a last digit of the number', () => {
     assert.strictEqual(getLastDigit(100), 0);
     assert.strictEqual(getLastDigit(37), 7);
     assert.strictEqual(getLastDigit(5), 5);
@@ -70,14 +70,14 @@ describe('02-numbers-tasks', () => {
     assert.linesOfCode(getLastDigit, 1);
   });
 
-  it.optional('parseNumberFromString should return a number from the given string representation', () => {
+  it('parseNumberFromString should return a number from the given string representation', () => {
     assert.strictEqual(parseNumberFromString('100'), 100);
     assert.strictEqual(parseNumberFromString('37'), 37);
     assert.strictEqual(parseNumberFromString('-525.5'), -525.5);
     assert.linesOfCode(parseNumberFromString, 1);
   });
 
-  it.optional('getParallelipidedDiagonal should return a diagonal length of the rectagular parallepiped', () => {
+  it('getParallelipidedDiagonal should return a diagonal length of the rectagular parallepiped', () => {
     assert.equal(getParallelipidedDiagonal(1, 1, 1), Math.sqrt(3));
     assert.equal(getParallelipidedDiagonal(3, 3, 3), Math.sqrt(27));
     assert.equal(
@@ -87,7 +87,7 @@ describe('02-numbers-tasks', () => {
     assert.linesOfCode(getParallelipidedDiagonal, 1);
   });
 
-  it.optional('roundToPowerOfTen should return an number rounded to specified power of 10', () => {
+  it('roundToPowerOfTen should return an number rounded to specified power of 10', () => {
     assert.equal(roundToPowerOfTen(1234, 0), 1234);
     assert.equal(roundToPowerOfTen(1234, 1), 1230);
     assert.equal(roundToPowerOfTen(1234, 2), 1200);
@@ -101,7 +101,7 @@ describe('02-numbers-tasks', () => {
     assert.linesOfCode(roundToPowerOfTen, 2);
   });
 
-  it.optional('isPrime should return true if specified number is prime', () => {
+  it('isPrime should return true if specified number is prime', () => {
     assert.equal(isPrime(1), false, '1');
     assert.equal(isPrime(2), true, '2');
     assert.equal(isPrime(3), true, '3');
@@ -120,7 +120,7 @@ describe('02-numbers-tasks', () => {
     assert.linesOfCode(isPrime, 9);
   });
 
-  it.optional('toNumber should convert any value to number or return the default', () => {
+  it('toNumber should convert any value to number or return the default', () => {
     assert.strictEqual(toNumber(null, 0), 0);
     assert.strictEqual(toNumber('test', 0), 0);
     assert.strictEqual(toNumber('1', 0), 1);
