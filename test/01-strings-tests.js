@@ -22,71 +22,71 @@ const {
 it.optional = require('../extensions/it-optional');
 
 describe('01-strings-tasks', () => {
-  it.optional('concatenateStrings should return concatenation of two strings', () => {
+  it('concatenateStrings should return concatenation of two strings', () => {
     assert.equal(concatenateStrings('aa', 'bb'), 'aabb');
     assert.equal(concatenateStrings('aa', ''), 'aa');
     assert.equal(concatenateStrings('', 'bb'), 'bb');
     assert.linesOfCode(concatenateStrings, 1);
   });
 
-  it.optional('getStringLength should return the length of string', () => {
+  it('getStringLength should return the length of string', () => {
     assert.equal(getStringLength('aaaaa'), 5, "'aaaaa' length should be 5");
     assert.equal(getStringLength(''), 0, "'' length should be 0");
     assert.linesOfCode(getStringLength, 1);
   });
 
-  it.optional('getStringFromTemplate should create a string from template using given parameters', () => {
+  it('getStringFromTemplate should create a string from template using given parameters', () => {
     assert.equal(getStringFromTemplate('John', 'Doe'), 'Hello, John Doe!');
     assert.equal(getStringFromTemplate('Chuck', 'Norris'), 'Hello, Chuck Norris!');
     assert.linesOfCode(getStringFromTemplate, 1);
   });
 
-  it.optional('getFirstChar should return the first char from given string', () => {
+  it('getFirstChar should return the first char from given string', () => {
     assert.equal(getFirstChar('John Doe'), 'J');
     assert.equal(getFirstChar('cat'), 'c');
     assert.linesOfCode(getFirstChar, 1);
   });
 
-  it.optional('extractNameFromTemplate should parse the name from given string', () => {
+  it('extractNameFromTemplate should parse the name from given string', () => {
     assert.equal(extractNameFromTemplate('Hello, John Doe!'), 'John Doe');
     assert.equal(extractNameFromTemplate('Hello, Chuck Norris!'), 'Chuck Norris');
     assert.linesOfCode(extractNameFromTemplate, 1);
   });
 
-  it.optional('removeLeadingAndTrailingWhitespaces should remove leading and trailing whitespaces from the string', () => {
+  it('removeLeadingAndTrailingWhitespaces should remove leading and trailing whitespaces from the string', () => {
     assert.equal(removeLeadingAndTrailingWhitespaces('  Abracadabra'), 'Abracadabra');
     assert.equal(removeLeadingAndTrailingWhitespaces('cat'), 'cat');
     assert.equal(removeLeadingAndTrailingWhitespaces('\tHello, World! '), 'Hello, World!');
     assert.linesOfCode(removeLeadingAndTrailingWhitespaces, 1);
   });
 
-  it.optional('repeatString should repeat string specified number of times', () => {
+  it('repeatString should repeat string specified number of times', () => {
     assert.equal(repeatString('A', 5), 'AAAAA');
     assert.equal(repeatString('cat', 3), 'catcatcat');
     assert.linesOfCode(repeatString, 1);
   });
 
-  it.optional('removeFirstOccurrences should remove all specified values from a string', () => {
+  it('removeFirstOccurrences should remove all specified values from a string', () => {
     assert.equal(removeFirstOccurrences('To be or not to be', ' not'), 'To be or to be');
     assert.equal(removeFirstOccurrences('I like legends', 'end'), 'I like legs');
     assert.equal(removeFirstOccurrences('ABABAB', 'BA'), 'ABAB');
     assert.linesOfCode(removeFirstOccurrences, 1);
   });
 
-  it.optional('unbracketTag should remove first and last angle brackets from tag string', () => {
+  it('unbracketTag should remove first and last angle brackets from tag string', () => {
     assert.equal(unbracketTag('<div>'), 'div');
     assert.equal(unbracketTag('<span>'), 'span');
     assert.equal(unbracketTag('<a>'), 'a');
     assert.linesOfCode(unbracketTag, 1);
   });
 
-  it.optional('convertToUpperCase should convert all chars from specified string into upper case', () => {
+  it('convertToUpperCase should convert all chars from specified string into upper case', () => {
     assert.equal(convertToUpperCase('Thunderstruck'), 'THUNDERSTRUCK');
     assert.equal(convertToUpperCase('abcdefghijklmnopqrstuvwxyz'), 'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
     assert.linesOfCode(convertToUpperCase, 1);
   });
 
-  it.optional('extractEmails should extract emails from string list delimeted by semicolons', () => {
+  it('extractEmails should extract emails from string list delimeted by semicolons', () => {
     assert.deepEqual(
       extractEmails('angus.young@gmail.com;brian.johnson@hotmail.com;bon.scott@yahoo.com'),
       ['angus.young@gmail.com', 'brian.johnson@hotmail.com', 'bon.scott@yahoo.com']
@@ -98,7 +98,7 @@ describe('01-strings-tasks', () => {
     assert.linesOfCode(extractEmails, 1);
   });
 
-  it.optional('getRectangleString should return the string reprentation of rectangle with specified size', () => {
+  it('getRectangleString should return the string reprentation of rectangle with specified size', () => {
     assert.equal(
       getRectangleString(6, 4),
       '┌────┐\n' +
@@ -120,7 +120,7 @@ describe('01-strings-tasks', () => {
     assert.linesOfCode(getRectangleString, 4);
   });
 
-  it.optional('encodeToRot13 should encode-decode string using ROT13 algorithm', () => {
+  it('encodeToRot13 should encode-decode string using ROT13 algorithm', () => {
     assert.equal(encodeToRot13('hello'), 'uryyb');
     assert.equal(
       encodeToRot13('Why did the chicken cross the road?'),
@@ -133,7 +133,7 @@ describe('01-strings-tasks', () => {
     assert.linesOfCode(encodeToRot13, 14);
   });
 
-  it.optional('isString should return true if argument ia a string', () => {
+  it('isString should return true if argument ia a string', () => {
     assert.equal(isString(), false, 'undefined');
     assert.equal(isString(null), false, 'null');
     assert.equal(isString([]), false,  '[]');
@@ -142,7 +142,7 @@ describe('01-strings-tasks', () => {
     assert.linesOfCode(isString, 1);
   });
 
-  it.optional('getCardId should return the index of card in the initial deck', () => {
+  it('getCardId should return the index of card in the initial deck', () => {
     [
       'A♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣',
       'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦',

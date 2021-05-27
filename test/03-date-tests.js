@@ -10,7 +10,7 @@ const {
 it.optional = require('../extensions/it-optional');
 
 describe('03-date-tasks', () => {
-  it.optional('parseDataFromRfc2822 should parse rfc2822 string into a date value', () => {
+  it('parseDataFromRfc2822 should parse rfc2822 string into a date value', () => {
     assert.equal(
       parseDataFromRfc2822('December 17, 1995 03:24:00').valueOf(),
       new Date(1995, 11, 17, 3, 24, 0).valueOf()
@@ -30,7 +30,7 @@ describe('03-date-tasks', () => {
   });
 
 
-  it.optional('parseDataFromIso8601 should parse ISO 8601 string into a date value', () => {
+  it('parseDataFromIso8601 should parse ISO 8601 string into a date value', () => {
     assert.equal(
       parseDataFromIso8601('2016-01-19T16:07:37+00:00').valueOf(),
       1453219657000
@@ -45,7 +45,7 @@ describe('03-date-tasks', () => {
   });
 
 
-  it.optional('isLeapYear should true if specified year is leap', () => {
+  it('isLeapYear should true if specified year is leap', () => {
     [
       new Date(2000, 1, 1),
       new Date(2012, 1, 1)
@@ -70,7 +70,7 @@ describe('03-date-tasks', () => {
   });
 
 
-  it.optional('timeSpanToString should return the string represation of time span between two dates', () => {
+  it('timeSpanToString should return the string represation of time span between two dates', () => {
     [
       {
         startDate: new Date(2000, 1, 1, 10, 0, 0),
@@ -104,7 +104,7 @@ describe('03-date-tasks', () => {
   });
 
 
-  it.optional('angleBetweenClockHands should returns the angle bettween clock hands for specified Greenwich datetime', () => {
+  it('angleBetweenClockHands should returns the angle bettween clock hands for specified Greenwich datetime', () => {
     [
       {
         date: Date.UTC(2016, 3, 5, 0, 0),

@@ -38,7 +38,7 @@ const {
 it.optional = require('../extensions/it-optional');
 
 describe('04-arrays-tasks', () => {
-  it.optional('findElement should return the index of specified value if exists', () => {
+  it('findElement should return the index of specified value if exists', () => {
     [
       {
         arr: ['Ace', 10, true],
@@ -66,7 +66,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('generateOdds should return the array of odd numbers of specified size', () => {
+  it('generateOdds should return the array of odd numbers of specified size', () => {
     [
       {
         len: 1,
@@ -92,7 +92,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('doubleArray should return the specified array twice', () => {
+  it('doubleArray should return the specified array twice', () => {
     [
       {
         arr: ['Ace', 10, true],
@@ -117,7 +117,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('getArrayOfPositives should return the array of positive values from specified array', () => {
+  it('getArrayOfPositives should return the array of positive values from specified array', () => {
     [
       {
         arr: [0, 1, 2, 3, 4, 5],
@@ -141,7 +141,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('getArrayOfStrings should return the array of string values from specified array', () => {
+  it('getArrayOfStrings should return the array of string values from specified array', () => {
     [
       {
         arr: [0, 1, 'cat', 3, true, 'dog'],
@@ -165,7 +165,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('removeFalsyValues should return the specified array without falsy values', () => {
+  it('removeFalsyValues should return the specified array without falsy values', () => {
     [
       {
         arr: [0, false, 'cat', NaN, true, ''],
@@ -189,7 +189,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('findAllOccurences should return the number of all occurences of specified item in an array', () => {
+  it('findAllOccurences should return the number of all occurences of specified item in an array', () => {
     [
       {
         arr: [0, 0, 1, 1, 1, 2],
@@ -225,7 +225,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('getUpperCaseStrings should convert strings from specified array to uppercase', () => {
+  it('getUpperCaseStrings should convert strings from specified array to uppercase', () => {
     [
       {
         arr: ['permanent-internship', 'glutinous-shriek', 'multiplicative-elevation'],
@@ -246,7 +246,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('getStringsLength should convert strings from specified array to uppercase', () => {
+  it('getStringsLength should convert strings from specified array to uppercase', () => {
     [
       {
         arr: ['', 'a', 'bc', 'def', 'ghij'],
@@ -267,7 +267,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('insertItem should insert an item at specified position', () => {
+  it('insertItem should insert an item at specified position', () => {
     [
       {
         arr: [1, 3, 4, 5],
@@ -292,7 +292,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('getHead should return the n first items from the specified array', () => {
+  it('getHead should return the n first items from the specified array', () => {
     [
       {
         arr: [1, 2, 3, 4, 5],
@@ -314,7 +314,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('getTail should return the n last items from the specified array', () => {
+  it('getTail should return the n last items from the specified array', () => {
     [
       {
         arr: [1, 2, 3, 4, 5],
@@ -336,7 +336,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('toCsvText should convert two-dimentional numeric array to CSV format', () => {
+  it('toCsvText should convert two-dimentional numeric array to CSV format', () => {
     [
       {
         arr: [
@@ -366,7 +366,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('toArrayOfSquares should convert numeric array to the array of squares', () => {
+  it('toArrayOfSquares should convert numeric array to the array of squares', () => {
     [
       {
         arr: [0, 1, 2, 3, 4, 5],
@@ -387,7 +387,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('getMovingSum should convert numeric array to the according array of moving sum', () => {
+  it('getMovingSum should convert numeric array to the according array of moving sum', () => {
     [
       {
         arr: [1, 1, 1, 1, 1],
@@ -414,7 +414,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('getSecondItems should return every second item from the specified array', () => {
+  it('getSecondItems should return every second item from the specified array', () => {
     [
       {
         arr: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
@@ -438,7 +438,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('propagateItemsByPositionIndex should propagate every item its position time', () => {
+  it('propagateItemsByPositionIndex should propagate every item its position time', () => {
     [
       {
         arr: [],
@@ -468,7 +468,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('get3TopItems should return the 3 largest items from integer array', () => {
+  it('get3TopItems should return the 3 largest items from integer array', () => {
     [
       {
         arr: [],
@@ -504,7 +504,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('getPositivesCount should return the number of positive integers in the specified array', () => {
+  it('getPositivesCount should return the number of positive integers in the specified array', () => {
     [
       {
         arr: [],
@@ -538,7 +538,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('sortDigitNamesByNumericOrder should sort digit names by its numeric value', () => {
+  it('sortDigitNamesByNumericOrder should sort digit names by its numeric value', () => {
     [
       {
         arr: [],
@@ -571,7 +571,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('getItemsSum should return the sum of all items of numbers array', () => {
+  it('getItemsSum should return the sum of all items of numbers array', () => {
     [
       {
         arr: [],
@@ -596,7 +596,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('getFalsyValuesCount should return the number of falsy value in the specified array', () => {
+  it('getFalsyValuesCount should return the number of falsy value in the specified array', () => {
     [
       {
         arr: [],
@@ -624,7 +624,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('toStringList should return the string list of passed arguments', () => {
+  it('toStringList should return the string list of passed arguments', () => {
     [
       {
         arr: [0, false, 'cat', NaN, true, ''],
@@ -648,7 +648,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('sortCitiesArray should sort the array of objects using two keys', () => {
+  it('sortCitiesArray should sort the array of objects using two keys', () => {
     [
       {
         arr: [
@@ -726,7 +726,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('getIdentityMatrix should return the identity matrix of the specified size', () => {
+  it('getIdentityMatrix should return the identity matrix of the specified size', () => {
     [
       {
         n: 1,
@@ -755,7 +755,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('getIntervalArray should return the array of integers from start to end (inclusive)', () => {
+  it('getIntervalArray should return the array of integers from start to end (inclusive)', () => {
     [
       {
         start: 1,
@@ -793,7 +793,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('distinct should return an array of unique items from the specified array', () => {
+  it('distinct should return an array of unique items from the specified array', () => {
     [
       {
         arr: [1, 2, 3, 3, 2, 1],
@@ -820,7 +820,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('group should return a map of grouped data by key and value selector', () => {
+  it('group should return a map of grouped data by key and value selector', () => {
     [
       {
         arr: [
@@ -867,7 +867,7 @@ describe('04-arrays-tasks', () => {
     assert.linesOfCode(group, 7);
   });
 
-  it.optional('selectMany should return an array of child items from the specified array', () => {
+  it('selectMany should return an array of child items from the specified array', () => {
     [
       {
         arr: [[1, 2], [3, 4], [5, 6]],
@@ -894,7 +894,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('getElementByIndexes should return an element from array by specified indexes', () => {
+  it('getElementByIndexes should return an element from array by specified indexes', () => {
     [
       {
         arr: [[1, 2], [3, 4], [5, 6]],
@@ -922,7 +922,7 @@ describe('04-arrays-tasks', () => {
   });
 
 
-  it.optional('swapHeadAndTail should swap the head and tail of the array', () => {
+  it('swapHeadAndTail should swap the head and tail of the array', () => {
     [
       {
         arr: [1],
@@ -952,7 +952,7 @@ describe('04-arrays-tasks', () => {
     assert.linesOfCode(swapHeadAndTail, 8, 2);
   });
 
-  it.optional('Functions from 04-array-test.js should not use basic loops statements', () => {
+  it('Functions from 04-array-test.js should not use basic loops statements', () => {
     Object.getOwnPropertyNames(tasks)
       .filter(x => tasks[x] instanceof Function)
       .forEach(f => {
