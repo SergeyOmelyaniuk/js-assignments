@@ -9,7 +9,7 @@ const {
 it.optional = require('../extensions/it-optional');
 
 describe('08-objects-tasks', () => {
-  it.optional('Rectangle constructor should return the rectangle object', () => {
+  it('Rectangle constructor should return the rectangle object', () => {
     const rect = new Rectangle(10, 20);
 
     assert.equal(
@@ -53,7 +53,7 @@ describe('08-objects-tasks', () => {
   });
 
 
-  it.optional('getJSON should return the JSON representation of specified object', () => {
+  it('getJSON should return the JSON representation of specified object', () => {
     [
       {
         obj: [1, 2, 3],
@@ -73,7 +73,7 @@ describe('08-objects-tasks', () => {
   });
 
 
-  it.optional('fromJSON should return the object of specified type from JSON representation', () => {
+  it('fromJSON should return the object of specified type from JSON representation', () => {
     const MockType = function (a, b, c) {
       this.a = a;
       this.b = b;
@@ -108,7 +108,7 @@ describe('08-objects-tasks', () => {
   });
 
 
-  it.optional('cssSelectorBuilder should creates css selector object with stringify() method', () => {
+  it('cssSelectorBuilder should creates css selector object with stringify() method', () => {
     const builder = cssSelectorBuilder;
 
     // Test simple selectors

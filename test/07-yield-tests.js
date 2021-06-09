@@ -10,7 +10,7 @@ const {
 it.optional = require('../extensions/it-optional');
 
 describe('07-yield-tasks', () => {
-  it.optional('get99BottlesOfBeer should return the sequence of song lyric lines', () => {
+  it('get99BottlesOfBeer should return the sequence of song lyric lines', () => {
     const expected = [
       '99 bottles of beer on the wall, 99 bottles of beer.',
       'Take one down and pass it around, 98 bottles of beer on the wall.',
@@ -231,7 +231,7 @@ describe('07-yield-tasks', () => {
   });
 
 
-  it.optional('getFibonacciSequence should return the Fibonacci sequence', () => {
+  it('getFibonacciSequence should return the Fibonacci sequence', () => {
     const expected = [
       0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181,
       6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811, 514229, 832040, 1346269,
@@ -251,7 +251,7 @@ describe('07-yield-tasks', () => {
   });
 
 
-  it.optional('depthTraversalTree should return the sequence of tree nodes in depth-first order', () => {
+  it('depthTraversalTree should return the sequence of tree nodes in depth-first order', () => {
     /*
        *     source tree (root = 1):
        *
@@ -307,7 +307,7 @@ describe('07-yield-tasks', () => {
     return root;
   }
 
-  it.optional('depthTraversalTree should process a deep tree', () => {
+  it('depthTraversalTree should process a deep tree', () => {
     const root = createDeepTree();
     let index = 1;
     for (const node of depthTraversalTree(root)) {
@@ -322,7 +322,7 @@ describe('07-yield-tasks', () => {
     if (index - 1 < MAX_NODE_COUNT) assert.fail(index - 1, MAX_NODE_COUNT, `sequence length should be equal to ${MAX_NODE_COUNT}`);
   });
 
-  it.optional('depthTraversalTree should process a wide tree', () => {
+  it('depthTraversalTree should process a wide tree', () => {
     const root = createWideTree();
     let index = 1;
     for (const node of depthTraversalTree(root)) {
@@ -338,7 +338,7 @@ describe('07-yield-tasks', () => {
   });
 
 
-  it.optional('breadthTraversalTree should return the sequence of tree nodes in depth-first order', () => {
+  it('breadthTraversalTree should return the sequence of tree nodes in depth-first order', () => {
     /*
        *     source tree (root = 1):
        *
@@ -377,7 +377,7 @@ describe('07-yield-tasks', () => {
   });
 
 
-  it.optional('breadthTraversalTree should process a deep tree', () => {
+  it('breadthTraversalTree should process a deep tree', () => {
     const root = createDeepTree();
     let index = 1;
     for (const node of breadthTraversalTree(root)) {
@@ -392,7 +392,7 @@ describe('07-yield-tasks', () => {
     if (index - 1 < MAX_NODE_COUNT) assert.fail(index - 1, MAX_NODE_COUNT, `sequence length should be equal to ${MAX_NODE_COUNT}`);
   });
 
-  it.optional('breadthTraversalTree should process a wide tree', () => {
+  it('breadthTraversalTree should process a wide tree', () => {
     const root = createWideTree();
     let index = 1;
     for (const node of breadthTraversalTree(root)) {
@@ -408,7 +408,7 @@ describe('07-yield-tasks', () => {
   });
 
 
-  it.optional('mergeSortedSequences should merge two sorted sequences into one sorted sequence', () => {
+  it('mergeSortedSequences should merge two sorted sequences into one sorted sequence', () => {
     const ITEMS_COUNT = 500;
 
     const odds = function* () {

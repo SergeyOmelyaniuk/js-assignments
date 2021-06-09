@@ -23,7 +23,7 @@ const {
 it.optional = require('../extensions/it-optional');
 
 describe('06-conditions-n-loops-tasks', () => {
-  it.optional('getFizzBuzz should return the output value according specification', () => {
+  it('getFizzBuzz should return the output value according specification', () => {
     [
       1, 2, 4, 7, 8, 11, 13, 14, 16, 17, 19, 22, 23, 26, 28, 29, 31, 32, 34,
       37, 38, 41, 43, 44, 47, 49, 52, 53, 56, 58, 59, 61, 62, 64, 67, 68, 71,
@@ -77,7 +77,7 @@ describe('06-conditions-n-loops-tasks', () => {
   });
 
 
-  it.optional('getFactorial should return the functorial of given number', () => {
+  it('getFactorial should return the functorial of given number', () => {
     [
       { n: 1, expected: 1 },
       { n: 5, expected: 120 },
@@ -95,7 +95,7 @@ describe('06-conditions-n-loops-tasks', () => {
   });
 
 
-  it.optional('getSumBetweenNumbers should return the sum inside the specified interval', () => {
+  it('getSumBetweenNumbers should return the sum inside the specified interval', () => {
     [
       { n1: 1, n2: 2, expected: 3 },
       { n1: 5, n2: 10, expected: 45 },
@@ -113,7 +113,7 @@ describe('06-conditions-n-loops-tasks', () => {
   });
 
 
-  it.optional('isTriangle should check if triangle can be built', () => {
+  it('isTriangle should check if triangle can be built', () => {
     [
       { sides: [1, 2, 3], expected: false },
       { sides: [3, 4, 5], expected: true },
@@ -138,7 +138,7 @@ describe('06-conditions-n-loops-tasks', () => {
   });
 
 
-  it.optional('doRectanglesOverlap should return true if rectangles overlap', () => {
+  it('doRectanglesOverlap should return true if rectangles overlap', () => {
     [
       {
         rect1: {
@@ -209,7 +209,7 @@ describe('06-conditions-n-loops-tasks', () => {
   });
 
 
-  it.optional('isInsideCircle should return true if point lies inside of the specified circle', () => {
+  it('isInsideCircle should return true if point lies inside of the specified circle', () => {
     [
       {
         circle: { center: { x: 0, y: 0 }, radius: 10 },
@@ -252,7 +252,7 @@ describe('06-conditions-n-loops-tasks', () => {
   });
 
 
-  it.optional('findFirstSingleChar should return the first unrepeated char from string', () => {
+  it('findFirstSingleChar should return the first unrepeated char from string', () => {
     [
       { str: 'The quick brown fox jumps over the lazy dog', expected: 'T' },
       { str: 'abracadabra', expected: 'c' },
@@ -270,7 +270,7 @@ describe('06-conditions-n-loops-tasks', () => {
   });
 
 
-  it.optional('getIntervalString should return the string representation of math interval', () => {
+  it('getIntervalString should return the string representation of math interval', () => {
     [
       {
         a: 0,
@@ -316,7 +316,7 @@ describe('06-conditions-n-loops-tasks', () => {
   });
 
 
-  it.optional('reverseString should return the specified string in reverse order', () => {
+  it('reverseString should return the specified string in reverse order', () => {
     [
       { str: 'The quick brown fox jumps over the lazy dog', expected: 'god yzal eht revo spmuj xof nworb kciuq ehT' },
       { str: 'abracadabra', expected: 'arbadacarba' },
@@ -335,7 +335,7 @@ describe('06-conditions-n-loops-tasks', () => {
   });
 
 
-  it.optional('reverseInteger should return the specified number in reverse order', () => {
+  it('reverseInteger should return the specified number in reverse order', () => {
     [
       { num: 12345, expected: 54321 },
       { num: 1111, expected: 1111 },
@@ -354,7 +354,7 @@ describe('06-conditions-n-loops-tasks', () => {
   });
 
 
-  it.optional('isCreditCardNumber should validate CCN', () => {
+  it('isCreditCardNumber should validate CCN', () => {
     [
       79927398713,
       4012888888881881,
@@ -400,7 +400,7 @@ describe('06-conditions-n-loops-tasks', () => {
   });
 
 
-  it.optional('getDigitalRoot should return the cyclic sum of all digits', () => {
+  it('getDigitalRoot should return the cyclic sum of all digits', () => {
     [
       { num: 12345, expected: 6 },
       { num: 23456, expected: 2 },
@@ -419,7 +419,7 @@ describe('06-conditions-n-loops-tasks', () => {
   });
 
 
-  it.optional('isBracketsBalanced should check the balanced brackets', () => {
+  it('isBracketsBalanced should check the balanced brackets', () => {
     [
       '[]', '[[][][[]]]', '[[][]]', '', '<>', '{}', '()', '<()>', '{<>}', '[{}]',
       '[{(<()[]{}<>>)}]', '{}<>()[]', '{<>}{()}[[]](())'
@@ -445,7 +445,7 @@ describe('06-conditions-n-loops-tasks', () => {
   });
 
 
-  it.optional('toNaryString should return the n-ary string representation of number', () => {
+  it('toNaryString should return the n-ary string representation of number', () => {
     [
       { num: 1024, n: 2, expected: '10000000000' },
       { num: 6561, n: 3, expected: '100000000' },
@@ -470,7 +470,7 @@ describe('06-conditions-n-loops-tasks', () => {
   });
 
 
-  it.optional('getCommonDirectoryPath should return the n-ary string representation of number', () => {
+  it('getCommonDirectoryPath should return the n-ary string representation of number', () => {
     [
       {
         pathes: ['/web/images/image1.png', '/web/images/image2.png'],
@@ -496,7 +496,7 @@ describe('06-conditions-n-loops-tasks', () => {
   });
 
 
-  it.optional('getMatrixProduct should return the product of two specified matrices', () => {
+  it('getMatrixProduct should return the product of two specified matrices', () => {
     [
       {
         m1: [
@@ -537,7 +537,7 @@ describe('06-conditions-n-loops-tasks', () => {
     assert.linesOfCode(getMatrixProduct, 12);
   });
 
-  it.optional('timespanToHumanString should return the human string representation of datetime period', () => {
+  it('timespanToHumanString should return the human string representation of datetime period', () => {
     [
       {
         startDate: '2000-01-01 01:00:00.100',
@@ -679,7 +679,7 @@ describe('06-conditions-n-loops-tasks', () => {
   });
 
 
-  it.optional('evaluateTicTacToePosition should return the winner if defined', () => {
+  it('evaluateTicTacToePosition should return the winner if defined', () => {
     const X = 'X';
     const O = '0';
 
