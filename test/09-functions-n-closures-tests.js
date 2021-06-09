@@ -13,7 +13,7 @@ const {
 it.optional = require('../extensions/it-optional');
 
 describe('09-functions-n-closures-tasks', () => {
-  it.optional('getComposition should return the composition of two functions', () => {
+  it('getComposition should return the composition of two functions', () => {
     [
       {
         f: Math.sin, g: Math.asin, arg: 0, result: 0
@@ -33,7 +33,7 @@ describe('09-functions-n-closures-tasks', () => {
   });
 
 
-  it.optional('getPowerFunction should return the math power function using the specified exponent', () => {
+  it('getPowerFunction should return the math power function using the specified exponent', () => {
     const power2 = getPowerFunction(2);
     for (let i = 0; i < 10; i++) {
       assert.equal(power2(i), Math.pow(i, 2));
@@ -48,7 +48,7 @@ describe('09-functions-n-closures-tasks', () => {
   });
 
 
-  it.optional('getPolynom should return the polynom with specified coefficients', () => {
+  it('getPolynom should return the polynom with specified coefficients', () => {
     [
       {
         polynom: getPolynom(2, 3, 5),
@@ -70,7 +70,7 @@ describe('09-functions-n-closures-tasks', () => {
   });
 
 
-  it.optional('memoize method should cache the result of function', () => {
+  it('memoize method should cache the result of function', () => {
     let numberOfCalls = 0;
     const fn = function () {
       numberOfCalls++;
@@ -87,7 +87,7 @@ describe('09-functions-n-closures-tasks', () => {
   });
 
 
-  it.optional('retry method should try to evaluate the specified function several times', () => {
+  it('retry method should try to evaluate the specified function several times', () => {
     const maxAttemps = 3;
     let attemps = 0;
     const expected = 'expected';
@@ -112,7 +112,7 @@ describe('09-functions-n-closures-tasks', () => {
   });
 
 
-  it.optional('logger method should log start and end of call of the standard js function', () => {
+  it('logger method should log start and end of call of the standard js function', () => {
     let log = '';
 
     const logFunc = text => { log += `${text}\n`; };
@@ -130,7 +130,7 @@ describe('09-functions-n-closures-tasks', () => {
   });
 
 
-  it.optional('logger method should log start and end of call of the specified function', () => {
+  it('logger method should log start and end of call of the specified function', () => {
     let isCalling = false;
     let log = '';
 
@@ -162,7 +162,7 @@ describe('09-functions-n-closures-tasks', () => {
   });
 
 
-  it.optional('partialUsingArguments should return the function with partial applied arguments', () => {
+  it('partialUsingArguments should return the function with partial applied arguments', () => {
     const fn = (x1, x2, x3, x4) => x1 + x2 + x3 + x4;
     assert.equal(
       partialUsingArguments(fn, 'a')('b', 'c', 'd'),
@@ -189,7 +189,7 @@ describe('09-functions-n-closures-tasks', () => {
   });
 
 
-  it.optional('getIdGeneratorFunction should return the id generator function', () => {
+  it('getIdGeneratorFunction should return the id generator function', () => {
     const f0 = getIdGeneratorFunction(0);
     for (let i = 0; i < 1000; i++) {
       assert.equal(f0(), i);

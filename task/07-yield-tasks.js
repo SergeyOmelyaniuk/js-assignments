@@ -32,7 +32,16 @@
  *
  */
 function* get99BottlesOfBeer() {
-  throw new Error('Not implemented');
+  yield '99 bottles of beer on the wall, 99 bottles of beer.';
+  for(let i = 98; i > 1; i--) {
+    yield `Take one down and pass it around, ${i} bottles of beer on the wall.`;
+    yield `${i} bottles of beer on the wall, ${i} bottles of beer.`;
+  }
+  yield 'Take one down and pass it around, 1 bottle of beer on the wall.';
+  yield '1 bottle of beer on the wall, 1 bottle of beer.';
+  yield 'Take one down and pass it around, no more bottles of beer on the wall.';
+  yield 'No more bottles of beer on the wall, no more bottles of beer.';
+  yield 'Go to the store and buy some more, 99 bottles of beer on the wall.';
 }
 
 
@@ -46,7 +55,15 @@ function* get99BottlesOfBeer() {
  *
  */
 function* getFibonacciSequence() {
-  throw new Error('Not implemented');
+  yield 0;
+  yield 1;
+  let x = 0, y = 1;
+  while(true){
+    const z = x + y;
+    x = y;
+    y = z;
+    yield z;
+  }
 }
 
 
@@ -81,7 +98,14 @@ function* getFibonacciSequence() {
  *
  */
 function* depthTraversalTree(root) {
-  throw new Error('Not implemented');
+  const sequence = [root];
+  while(sequence.length) {
+    const item = sequence.pop();
+    yield item;
+    if(item.children) {
+      sequence.push(...item.children.reverse());
+    }
+  }
 }
 
 
@@ -107,7 +131,14 @@ function* depthTraversalTree(root) {
  *
  */
 function* breadthTraversalTree(root) {
-  throw new Error('Not implemented');
+  const sequence = [root];
+  while(sequence.length) {
+    const item = sequence.pop();
+    yield item;
+    if(item.children) {
+      sequence.unshift(...item.children.reverse());
+    }
+  }
 }
 
 
@@ -125,7 +156,34 @@ function* breadthTraversalTree(root) {
  *   [ 1, 3, 5, ... ], [ -1 ] => [ -1, 1, 3, 5, ...]
  */
 function* mergeSortedSequences(source1, source2) {
-  throw new Error('Not implemented');
+  const sequence1 = source1();
+  const sequence2 = source2();
+  let value1 = sequence1.next().value;
+  let value2 = sequence2.next().value;
+
+  while(true) {
+    if(value1 <= value2) {
+      yield value1;
+      value1 = sequence1.next().value;
+      continue;
+    }
+    if(value2 < value1) {
+      yield value2;
+      value2 = sequence2.next().value;
+      continue;
+    }
+    if(!value1) {
+      yield value2;
+      value2 = sequence2.next().value;
+      continue;
+    }
+    if(!value2) {
+      yield value1;
+      value1 = sequence1.next().value;
+      continue;
+    }
+    return;
+  }
 }
 
 module.exports = {
