@@ -12,7 +12,11 @@
  *   'abcdefghijklmnop',  'lmnopqrstuvwxyz'  => 'abcdefghijklmnopqrstuvwxyz'
  */
 function distinctLettersString(value1, value2) {
-  throw new Error('Not implemented');
+  const arr = (value1 + value2)
+    .split('').sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0));
+  const result = arr.filter((elem, index) =>
+    arr.indexOf(elem) === index).join('');
+  return result;
 }
 
 
@@ -29,7 +33,16 @@ function distinctLettersString(value1, value2) {
  */
 
 function lowerLetters(value) {
-  throw new Error('Not implemented');
+  const firstLowerCharCode = 97, lastLowerCharCode = 122;
+
+  const arr = value.split('').filter(elem =>
+    elem.charCodeAt(0) >= firstLowerCharCode && elem.charCodeAt(0) <= lastLowerCharCode)
+    .sort((a, b) => a.charCodeAt(0) - b.charCodeAt(0));
+  const result = arr.reduce((acc, elem) => {
+    acc[elem] = (acc[elem] || 0) + 1;
+    return acc;
+  }, {});
+  return result;
 }
 
 /**
@@ -51,7 +64,15 @@ function lowerLetters(value) {
  */
 
 function titleCaseConvert(title, minorWords) {
-  throw new Error('Not implemented');
+  const array = title.toLowerCase().split(' ');
+  const exceptions = minorWords ? minorWords.toLowerCase().split(' ') : [];
+  const result = array.map(item => {
+    return exceptions.some(exception => exception === item)
+      ? item
+      : item[0].toUpperCase().concat(item.slice(1));
+  }).join(' ');
+  
+  return result[0].toUpperCase().concat(result.slice(1));
 }
 
 /**
@@ -72,7 +93,38 @@ function titleCaseConvert(title, minorWords) {
  */
 
 function calcRPN(expr) {
-  throw new Error('Not implemented');
+  if (expr.length === 0) {
+    return 0;
+  }
+
+  const array = expr.split(' ').map(item => {
+    return isFinite(item) ? +item : item;
+  });
+  const checker = array.indexOf('+') === -1 &&
+    array.indexOf('-') === -1 &&
+    array.indexOf('*') === -1 &&
+    array.indexOf('/') === -1;
+
+  if (checker) {
+    return array[array.length - 1];
+  }
+
+  const stack = [];
+  const map = ['+', '-', '*', '/'];
+  const add = (a, b) => b + a;
+  const sub = (a, b) => b - a;
+  const multi = (a, b) => b * a;
+  const division = (a, b) => b / a;
+  const functionMap = [add, sub, multi, division];
+  for (let i = 0; i < array.length; i += 1) {
+    if (isFinite(array[i])) {
+      stack.push(array[i]);
+    }
+    if (!isFinite(array[i])) {
+      stack.push(functionMap[map.indexOf(array[i])](stack.pop(), stack.pop()));
+    }
+  }
+  return stack[0];
 }
 
 module.exports = {

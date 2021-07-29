@@ -36,7 +36,33 @@
  *
  */
 function parseBankAccount(bankAccount) {
-  throw new Error('Not implemented');
+  const parts = bankAccount.split('\n').slice(0, 3);
+  const keys = [];
+  let result = '';
+  for (let i = 0; i < parts[0].length - 1; i += 3) {
+    keys.push(
+      parts[0].slice(i, i + 3) + parts[1].slice(i, i + 3) + parts[2].slice(i, i + 3)
+    );
+  }
+
+  const presets = {
+    '     |  |': '1',
+    ' _  _||_ ': '2',
+    ' _  _| _|': '3',
+    '   |_|  |': '4',
+    ' _ |_  _|': '5',
+    ' _ |_ |_|': '6',
+    ' _   |  |': '7',
+    ' _ |_||_|': '8',
+    ' _ |_| _|': '9',
+    ' _ | ||_|': '0'
+  };
+
+  for (const key of keys) {
+    result += presets[key];
+  }
+
+  return result;
 }
 
 
@@ -68,7 +94,27 @@ function parseBankAccount(bankAccount) {
  *      'characters.'
  */
 function* wrapText(text, columns) {
-  throw new Error('Not implemented');
+  const result = [];
+
+  text.split(' ').reduce((acc, item, index, arr) => {
+    if (acc.length <= columns) {
+      if (acc.length + item.length < columns) {
+        acc += ` ${item}`;
+      } else {
+        result.push(acc === '' ? item : acc);
+        acc = item;
+      }
+    }
+    if (index === arr.length - 1) {
+      result.push(acc ? acc : item);
+    }
+
+    return acc;
+  }, '');
+
+  while (result.length) {
+    yield result.shift().trim();
+  }
 }
 
 
@@ -105,7 +151,89 @@ const PokerRank = {
 };
 
 function getPokerHandRank(hand) {
-  throw new Error('Not implemented');
+  class Get {
+    constructor(hand) {
+      this._ranks = 'A234567891JQKA';
+      this.suits = [];
+      this.ranks = {
+        count: [],
+        values: [],
+        sorted: []
+      };
+
+      for (const key of hand) {
+        if (this.ranks.values.indexOf(key[0]) < 0) {
+          this.ranks.values.push(key[0]);
+          this.ranks.count.push(1);
+        } else {
+          this.ranks.count[this.ranks.values.indexOf(key[0])]++;
+        }
+
+        if (this.suits.indexOf(key.slice(-1)) < 0) {
+          this.suits.push(key.slice(-1));
+        }
+      }
+      this.ranks.sorted = this.ranks.values.sort(
+        (a, b) => this._ranks.indexOf(a) - this._ranks.indexOf(b)
+      );
+      if (this.ranks.sorted[0] === 'A' && this.ranks.sorted[1] !== '2') {
+        this.ranks.sorted.splice(0, 1);
+        this.ranks.sorted.push('A');
+      }
+    }
+
+    getCount(count) {
+      let result = 0;
+      for (const item of this.ranks.count) {
+        if (item === count) result++;
+      }
+      return result;
+    }
+
+    isFlush() {
+      return this.suits.length === 1;
+    }
+
+    isStraight() {
+      if (this.ranks.sorted.length < 5) {
+        return false;
+      }
+
+      for (let i = 1; i < 5; i++) {
+        if (
+          this._ranks.indexOf(this.ranks.sorted[i - 1]) + 1 !==
+          this._ranks.indexOf(this.ranks.sorted[i]) &&
+          this._ranks.indexOf(this.ranks.sorted[i - 1]) + 1 !==
+          this._ranks.lastIndexOf(this.ranks.sorted[i])
+        ) {
+          return false;
+        }
+      }
+      return true;
+    }
+  }
+
+  hand = new Get(hand);
+
+  if (hand.isFlush() && hand.isStraight()) {
+    return PokerRank.StraightFlush;
+  } else if (hand.getCount(4)) {
+    return PokerRank.FourOfKind;
+  } else if (hand.getCount(3) && hand.getCount(2)) {
+    return PokerRank.FullHouse;
+  } else if (hand.isFlush()) {
+    return PokerRank.Flush;
+  } else if (hand.isStraight()) {
+    return PokerRank.Straight;
+  } else if (hand.getCount(3)) {
+    return PokerRank.ThreeOfKind;
+  } else if (hand.getCount(2) === 2) {
+    return PokerRank.TwoPairs;
+  } else if (hand.getCount(2)) {
+    return PokerRank.OnePair;
+  } else {
+    return PokerRank.HighCard;
+  }
 }
 
 
@@ -141,7 +269,63 @@ function getPokerHandRank(hand) {
  *    '+-------------+\n'
  */
 function* getFigureRectangles(figure) {
-  throw new Error('Not implemented');
+  const signs = figure.split('\n');
+  const result = [];
+  const check = function bar(n, m) {
+    let i, j;
+
+    for (i = m; ; i++) {
+      if (signs[n - 1][i] === undefined || signs[n - 1][i] === ' ' || signs[n] ===
+        undefined) {
+        return;
+      }
+      if (signs[n][i] !== ' ') break;
+    }
+
+    const w = i;
+
+    for (j = n; ; j++) {
+      if (signs[j] === undefined || signs[j][w] === ' ') return;
+      if (signs[j][w - 1] !== ' ') break;
+    }
+
+    const h = j;
+
+    for (i = w - 1; ; i--) {
+      if (signs[h][i] === undefined || signs[h][i] === ' ' || signs[h - 1] ===
+        undefined) {
+        return;
+      }
+      if (signs[h - 1][i] !== ' ') break;
+    }
+
+    if (i + 1 !== m) {
+      return;
+    }
+
+    for (j = h - 1; ; j--) {
+      if (signs[j] === undefined || signs[j][m - 1] === ' ') return;
+      if (signs[j][m] !== ' ') break;
+    }
+
+    if (j + 1 !== n) return;
+    n = h - n;
+    m = w - m;
+    result.push(
+      '+' + '-'.repeat(m) + '+\n' + ('|' + ' '.repeat(m) + '|\n').repeat(n) +
+      '+' + '-'.repeat(m) + '+\n');
+  };
+
+  signs.pop();
+  signs.forEach((item, i) => item.split('').forEach((item, j) => {
+    if (item === '+') {
+      check(i + 1, j + 1);
+    }
+  }));
+
+  for (const item of result) {
+    yield item;
+  }
 }
 
 module.exports = {

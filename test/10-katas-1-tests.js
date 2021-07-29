@@ -10,7 +10,7 @@ const {
 it.optional = require('../extensions/it-optional');
 
 describe('10-katas-1-tasks', () => {
-  it.optional('createCompassPoints should return the 32 compass points', () => {
+  it('createCompassPoints should return the 32 compass points', () => {
     const expected = [
       { abbreviation: 'N', azimuth: 0.00 },
       { abbreviation: 'NbE', azimuth: 11.25 },
@@ -61,7 +61,7 @@ describe('10-katas-1-tasks', () => {
   });
 
 
-  it.optional('expandBraces should expand the braces from pattern string', () => {
+  it('expandBraces should expand the braces from pattern string', () => {
     [
       {
         str: '~/{Downloads,Pictures}/*.{jpg,gif,png}',
@@ -108,7 +108,7 @@ describe('10-katas-1-tasks', () => {
   });
 
 
-  it.optional('getZigZagMatrix should create a square matrix with zigzag path', () => {
+  it('getZigZagMatrix should create a square matrix with zigzag path', () => {
     [
       [
         [0]
@@ -157,7 +157,7 @@ describe('10-katas-1-tasks', () => {
   });
 
 
-  it.optional('canDominoesMakeRow should answer if specified subset of dominoes can be arranged in a row', () => {
+  it('canDominoesMakeRow should answer if specified subset of dominoes can be arranged in a row', () => {
     [
       [
         [0, 1], [1, 1]
@@ -195,7 +195,7 @@ describe('10-katas-1-tasks', () => {
   });
 
 
-  it.optional('extractRanges should return string expression of ordered list of integers', () => {
+  it('extractRanges should return string expression of ordered list of integers', () => {
     [
       {
         nums: [0, 1, 2, 3, 4, 5],

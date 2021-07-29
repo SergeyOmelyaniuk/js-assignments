@@ -22,8 +22,13 @@
  *    console.log(r.getArea());   // => 200
  */
 function Rectangle(width, height) {
-  throw new Error('Not implemented');
+  this.width = width;
+  this.height = height;
 }
+
+Rectangle.prototype.getArea = function() { 
+  return this.width * this.height;
+};
 
 
 /**
@@ -37,7 +42,7 @@ function Rectangle(width, height) {
  *    { width: 10, height : 20 } => '{"height":10,"width":20}'
  */
 function getJSON(obj) {
-  throw new Error('Not implemented');
+  return JSON.stringify(obj);
 }
 
 
@@ -53,7 +58,7 @@ function getJSON(obj) {
  *
  */
 function fromJSON(proto, json) {
-  throw new Error('Not implemented');
+  return Object.setPrototypeOf(JSON.parse(json), proto);
 }
 
 
@@ -112,35 +117,91 @@ function fromJSON(proto, json) {
  *  For more examples see unit tests.
  */
 
-const cssSelectorBuilder = {
+class CssSelector {
+  constructor() {
+    this.selector = '';
+    this.order = 0;
+    this.repeatError = 'Element, id and pseudo-element should not occur more then one time inside the selector';
+    this.orderError = 'Selector parts should be arranged in the following order: ' +
+      'element, id, class, attribute, pseudo-class, pseudo-element';
+  }
 
   element(value) {
-    throw new Error('Not implemented');
-  },
+    this.checkForRepeat(1);
+    this.checkOrder(1);
+    this.selector += value;
+    return this;
+  }
 
   id(value) {
-    throw new Error('Not implemented');
-  },
+    this.checkForRepeat(2);
+    this.checkOrder(2);
+    this.selector += `#${value}`;
+    return this;
+  }
 
   class(value) {
-    throw new Error('Not implemented');
-  },
+    this.checkForRepeat(3);
+    this.checkOrder(3);
+    this.selector += `.${value}`;
+    return this;
+  }
 
   attr(value) {
-    throw new Error('Not implemented');
-  },
+    this.checkForRepeat(4);
+    this.checkOrder(4);
+    this.selector += `[${value}]`;
+    return this;
+  }
 
   pseudoClass(value) {
-    throw new Error('Not implemented');
-  },
+    this.checkForRepeat(5);
+    this.checkOrder(5);
+    this.selector += `:${value}`;
+    return this;
+  }
 
   pseudoElement(value) {
-    throw new Error('Not implemented');
-  },
+    this.checkForRepeat(6);
+    this.checkOrder(6);
+    this.selector += `::${value}`;
+    return this;
+  }
 
   combine(selector1, combinator, selector2) {
-    throw new Error('Not implemented');
+    this.selector = `${selector1.stringify()} ${combinator} ${selector2.stringify()}`;
+    return this;
   }
+
+  stringify() {
+    return this.selector;
+  }
+
+  checkForRepeat(order) {
+    if(order === this.order && [1, 2, 6].includes(order)) {
+      throw this.repeatError;
+    }
+  }
+
+  checkOrder(order) {
+    if(order < this.order) {
+      throw this.orderError;
+    }
+    
+    this.order = order;
+  }
+}
+
+
+
+const cssSelectorBuilder = {
+  element: value => new CssSelector().element(value),
+  id: value => new CssSelector().id(value),
+  class: value => new CssSelector().class(value),
+  attr: value => new CssSelector().attr(value),
+  pseudoClass: value => new CssSelector().pseudoClass(value),
+  pseudoElement: value => new CssSelector().pseudoElement(value),
+  combine: (s1, c, s2) => new CssSelector().combine(s1, c, s2)
 };
 
 module.exports = {

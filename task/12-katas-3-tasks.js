@@ -28,7 +28,98 @@
  *   'NULL'      => false
  */
 function findStringInSnakingPuzzle(puzzle, searchStr) {
-  throw new Error('Not implemented');
+  const puzzleItems = puzzle.map(item => item.split(''));
+  let currentWord = searchStr[0];
+  const startPoints = [];
+
+  for (let i = 0; i < puzzleItems.length; i++) {
+    for (let j = 0; j < puzzleItems[0].length; j++) {
+      if (puzzleItems[i][j] === searchStr[0]) {
+        startPoints.push([i, j]);
+      }
+    }
+  }
+
+  return startPoints.some(item => search(puzzleItems, ...item));
+
+  function search(items, y, x) {
+    if (currentWord === searchStr) {
+      return true;
+    }
+
+    while (currentWord.length < searchStr.length) {
+      if (goTop()) {
+        continue;
+      }
+      if (goLeft()) {
+        continue;
+      }
+      if (goRight()) {
+        continue;
+      }
+      if (goBot()) {
+        continue;
+      }
+
+      if (currentWord === searchStr) {
+        return true;
+      }
+
+      currentWord = searchStr[0];
+
+      return false;
+    }
+
+    function goRight() {
+      if (items[y][x + 1]
+        && items[y][x + 1] === searchStr[currentWord.length]) {
+        currentWord += items[y][x + 1];
+        items[y][x] = undefined;
+        x++;
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    function goBot() {
+      if (items[y + 1]
+        && items[y + 1][x] === searchStr[currentWord.length]) {
+        currentWord += items[y + 1][x];
+        items[y][x] = undefined;
+        y++;
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    function goLeft() {
+      if (items[y][x - 1]
+        && items[y][x - 1] === searchStr[currentWord.length]) {
+        currentWord += items[y][x - 1];
+        items[y][x] = undefined;
+        x--;
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    function goTop() {
+      if (items[y - 1]
+        && items[y - 1][x] === searchStr[currentWord.length]) {
+        currentWord += items[y - 1][x];
+        items[y][x] = undefined;
+        y--;
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    return currentWord === searchStr;
+  }
 }
 
 
@@ -46,7 +137,19 @@ function findStringInSnakingPuzzle(puzzle, searchStr) {
  *    'abc' => 'abc','acb','bac','bca','cab','cba'
  */
 function* getPermutations(chars) {
-  throw new Error('Not implemented');
+  function* recursive(result) {
+    if (result.length === chars.length) {
+      yield result;
+    } else {
+      for (let i = 0; i < chars.length; i++) {
+        if (result.indexOf(chars[i]) < 0) {
+          yield* recursive(result + chars[i]);
+        }
+      }
+    }
+  }
+
+  yield* recursive('');
 }
 
 
@@ -68,7 +171,18 @@ function* getPermutations(chars) {
  *    [ 1, 6, 5, 10, 8, 7 ] => 18  (buy at 1,6,5 and sell all at 10)
  */
 function getMostProfitFromStockQuotes(quotes) {
-  throw new Error('Not implemented');
+  let profit = 0;
+
+  while (quotes.length) {
+    const maxQuote = Math.max(...quotes);
+    const maxQuoteIndex = quotes.indexOf(maxQuote);
+    const income = maxQuote * maxQuoteIndex;
+    const expense = quotes.slice(0, maxQuoteIndex).reduce((acc, item) => acc + item, 0);
+    profit += income - expense;
+    quotes = quotes.slice(maxQuoteIndex + 1);
+  }
+
+  return profit;
 }
 
 
@@ -90,15 +204,22 @@ function UrlShortener() {
   this.urlAllowedChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
                           'abcdefghijklmnopqrstuvwxyz' +
                           "0123456789-_.~!*'();:@&=+$,/?#[]";
+  this.data = {};
 }
 
 UrlShortener.prototype = {
   encode(url) {
-    throw new Error('Not implemented');
+    const shortURL = 'bit.ly/' + url.replace(/[^a-z]/g, '').slice(-4);
+
+    if (!this.data[shortURL]) {
+      this.data[shortURL] = url;
+    }
+
+    return shortURL;
   },
 
   decode(code) {
-    throw new Error('Not implemented');
+    return this.data[code];
   }
 };
 
