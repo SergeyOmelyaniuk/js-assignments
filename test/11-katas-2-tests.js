@@ -10,7 +10,7 @@ const {
 it.optional = require('../extensions/it-optional');
 
 describe('11-katas-2-tasks', () => {
-  it.optional('parseBankAccount should return the bank account number from the specified string', () => {
+  it('parseBankAccount should return the bank account number from the specified string', () => {
     [
       {
         text: ' _  _  _  _  _  _  _  _  _ \n' +
@@ -89,7 +89,7 @@ describe('11-katas-2-tasks', () => {
   });
 
 
-  it.optional('wrapText should return the sequence of lines from the specified string', () => {
+  it('wrapText should return the sequence of lines from the specified string', () => {
     const text = 'The String global object is a constructor for strings, or a sequence of characters.';
     [
       {
@@ -126,7 +126,7 @@ describe('11-katas-2-tasks', () => {
   });
 
 
-  it.optional('getPokerHandRank should return the rank of the specified poker hand', () => {
+  it('getPokerHandRank should return the rank of the specified poker hand', () => {
     const rankNames = [];
     rankNames[PokerRank.StraightFlush] = 'StraightFlush';
     rankNames[PokerRank.FourOfKind] = 'FourOfKind';
@@ -248,7 +248,7 @@ describe('11-katas-2-tasks', () => {
   });
 
 
-  it.optional('getFigureRectangles should return the sequence of rectagles parts of the specified figure', () => {
+  it('getFigureRectangles should return the sequence of rectagles parts of the specified figure', () => {
     [
       {
         figure: '+------------+\n' +

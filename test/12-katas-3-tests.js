@@ -9,7 +9,7 @@ const {
 it.optional = require('../extensions/it-optional');
 
 describe('12-katas-3-tasks', () => {
-  it.optional('findStringInSnakingPuzzle shoud return true if word occurrs in the specified puzzle', () => {
+  it('findStringInSnakingPuzzle shoud return true if word occurrs in the specified puzzle', () => {
     const puzzle = [
       'ANGULAR',
       'REDNCAE',
@@ -38,7 +38,7 @@ describe('12-katas-3-tasks', () => {
   });
 
 
-  it.optional('getPermutations should return all possible string permutations', () => {
+  it('getPermutations should return all possible string permutations', () => {
     [
       {
         chars: 'a',
@@ -73,7 +73,7 @@ describe('12-katas-3-tasks', () => {
   });
 
 
-  it.optional('getMostProfitFromStockQuotes should return the max profit from stock trading', () => {
+  it('getMostProfitFromStockQuotes should return the max profit from stock trading', () => {
     [
       {
         quotes: [1, 2, 3, 4, 5, 6],
@@ -102,7 +102,7 @@ describe('12-katas-3-tasks', () => {
   });
 
 
-  it.optional('urlShortener should return encoded string shorter than original url', () => {
+  it('urlShortener should return encoded string shorter than original url', () => {
     [
       'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/imul',
       'https://en.wikipedia.org/wiki/Percent-encoding#Types_of_URI_characters',
@@ -118,7 +118,7 @@ describe('12-katas-3-tasks', () => {
   });
 
 
-  it.optional('urlShortener should decode shorten link to to the original url', () => {
+  it('urlShortener should decode shorten link to to the original url', () => {
     [
       'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/imul',
       'https://www.example.com/catalog.html?search=mobile+phones&price=100-200&year=2016#top_links'
